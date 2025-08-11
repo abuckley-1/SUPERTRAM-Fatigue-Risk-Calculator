@@ -70,4 +70,15 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://github.com/abuckley-1/SUPERTRAM-Fatigue-Risk-Calculator/raw/main/Super
+            https://github.com/abuckley-1/SUPERTRAM-Fatigue-Risk-Calculator/raw/main/SupertramLogoLogo3Large.jpg
+        </div>
+        <h2>SUPERTRAM Fatigue Risk Calculator</h2>
+        <form method="post">
+            Duty Length (minutes): <input type="number" name="duty_length" required>
+            Rest Length (minutes): <input type="number" name="rest_length" required>
+            Commuting Time (minutes): <input type="number" name="commute" required>
+            Job Workload (1-3): <input type="number" name="workload" min="1" max="3" required>
+            Job Attention (1-3): <input type="number" name="attention" min="1" max="3" required>
+            Break Frequency (minutes): <input type="number" name="break_freq" required>
+            Break Average Length (minutes): <input type="number" name="break_avg" required>
+            Continuous Work Length 
