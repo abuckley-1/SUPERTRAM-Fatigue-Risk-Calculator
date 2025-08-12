@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import io
+import base64
 from flask import Flask, render_template_string, request
 import os
 
@@ -70,7 +73,7 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg"
+            https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg
         </div>
         <h2>SUPERTRAM Fatigue Risk Calculator</h2>
         <form method="post">
@@ -88,8 +91,14 @@ HTML_TEMPLATE = """
         {% if fatigue_index is not none %}
             <h3 style="text-align:center; margin-top:20px;">Calculated Fatigue Index: {{ fatigue_index }}</h3>
         {% endif %}
+        {% if chart_html %}
+            <div style="text-align:center; margin-top:20px;">
+                {{ chart_html|safe }}
+            </div>
+        {% endif %}
         <div class="readme-link">
-            <a href="https://github.com/abuckley-1-Fatigue-Risk-Calculator/blob/main/README   </div>
+            https://github.com/abuckley-1-Fatigue-Risk-Calculator/blob/main/README.md
+        </div>
     </div>
 </body>
 </html>
@@ -113,6 +122,8 @@ def calculate_fatigue_index(duty_length, rest_length, commute, workload, attenti
 @app.route('/', methods=['GET', 'POST'])
 def index():
     fatigue_index = None
+    chart_html = None
+
     if request.method == 'POST':
         try:
             duty_length = int(request.form['duty_length'])
@@ -129,11 +140,24 @@ def index():
                 duty_length, rest_length, commute, workload, attention,
                 break_freq, break_avg, cont_work, break_after_cont
             )
+
+            # Generate bar chart
+            img = io.BytesIO()
+            plt.figure(figsize=(4, 2))
+            plt.bar(['Fatigue Index'], [fatigue_index], color='#0078D4')
+            plt.ylim(0, 300)
+            plt.title('Fatigue Index Visualisation')
+            plt.tight_layout()
+            plt.savefig(img, format='png')
+            img.seek(0)
+            chart_url = base64.b64encode(img.getvalue()).decode()
+            chart_html = f'<img src="data:image/png;base64,{chart_url}" alt="Fatigue Chart"/>'
+
         except ValueError as e:
             print("Error:", e)
             fatigue_index = "Invalid input. Please enter numeric values."
 
-    return render_template_string(HTML_TEMPLATE, fatigue_index=fatigue_index)
+    return render_template_string(HTML_TEMPLATE, fatigue_index=fatigue_index, chart_html=chart_html)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
