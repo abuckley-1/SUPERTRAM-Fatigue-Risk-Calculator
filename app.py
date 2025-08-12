@@ -70,7 +70,7 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <div class="logo">
-            https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg
+            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg"
         </div>
         <h2>SUPERTRAM Fatigue Risk Calculator</h2>
         <form method="post">
