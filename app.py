@@ -70,7 +70,9 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg"
+            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogo.jpg
+        </div>
+        <h2>SUPERTRAM Fatigue Risk Calculator</h2>
         <form method="post">
             Duty Length (minutes): <input type="number" name="duty_length" required>
             Rest Length (minutes): <input type="number" name="rest_length" required>
@@ -87,7 +89,7 @@ HTML_TEMPLATE = """
             <h3 style="text-align:center; margin-top:20px;">Calculated Fatigue Index: {{ fatigue_index }}</h3>
         {% endif %}
         <div class="readme-link">
-            <a href="https://github.com/abuckley-1-Fatigue-Risk-Calculator/blob/main/README.md">div>
+            <a href="https://github.com/abuckley-1-Fatigue-Risk-Calculator/blob/main/README.md</div>
     </div>
 </body>
 </html>
@@ -127,7 +129,8 @@ def index():
                 duty_length, rest_length, commute, workload, attention,
                 break_freq, break_avg, cont_work, break_after_cont
             )
-        except ValueError:
+        except ValueError as e:
+            print("Error:", e)
             fatigue_index = "Invalid input. Please enter numeric values."
 
     return render_template_string(HTML_TEMPLATE, fatigue_index=fatigue_index)
