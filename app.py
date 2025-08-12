@@ -70,7 +70,7 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://github.com/abuckley-1-Fatigue-Risk-Calculator/raw/main/SupertramLogoLogo3Large.jpg" alt="       <h2>SUPERTRAM Fatigue Risk Calculator</h2>
+            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg" alt="Supertram LogoERTRAM Fatigue Risk Calculator</h2>
         <form method="post">
             Duty Length (minutes): <input type="number" name="duty_length" required>
             Rest Length (minutes): <input type="number" name="rest_length" required>
@@ -87,8 +87,7 @@ HTML_TEMPLATE = """
             <h3 style="text-align:center; margin-top:20px;">Calculated Fatigue Index: {{ fatigue_index }}</h3>
         {% endif %}
         <div class="readme-link">
-            <a href="https://github.com/abuckley--Risk-Calculator/blob/main/README.md
-        </div>
+            <a href="https://github.com/abuckley-1-Fatigue-Risk-Calculator/blob/main/README.md">div>
     </div>
 </body>
 </html>
