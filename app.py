@@ -70,7 +70,7 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg" alt="Supertram LogoERTRAM Fatigue Risk Calculator</h2>
+            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg"
         <form method="post">
             Duty Length (minutes): <input type="number" name="duty_length" required>
             Rest Length (minutes): <input type="number" name="rest_length" required>
