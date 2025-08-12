@@ -70,7 +70,7 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/abuckley-1-Fatigue-Riskr/main/SupertramLogoLogo3Large.jpg
+            https://raw.githubusercontent.com/abuckley-1-Fatigue-Risk-Calculator/main/SupertramLogoLogo3Large.jpg
         </div>
         <h2>SUPERTRAM Fatigue Risk Calculator</h2>
         <form method="post">
@@ -89,7 +89,8 @@ HTML_TEMPLATE = """
             <h3 style="text-align:center; margin-top:20px;">Calculated Fatigue Index: {{ fatigue_index }}</h3>
         {% endif %}
         <div class="readme-link">
-            <a href="https://github.com/abuckley-1-Fatigue-Risk-Calculator/blob/main/README.md">View README</a>
+            <a href="https://github.com/abuckley-1-Fatigue-Risk-Calculator/blob/main/README   </div>
+    </div>
 </body>
 </html>
 """
